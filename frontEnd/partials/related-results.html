@@ -1,0 +1,17 @@
+<!--<div ng-if="related.Response!=='False'">-->
+<div><span><br><br></span>
+    <b>Key Phrases:</b>
+    <hr>
+    <ul class="rel-results">
+        <li ng-repeat="movie in related">
+            {{movie[0]}}
+        </li>
+    </ul>
+    <!--<tr ng-repeat="keyword in related">-->
+        <!--<td>{{ keyword.Keywords }}</td>-->
+        <!--<td>{{ keyword.Scores }}</td>-->
+    <!--</tr>-->
+
+
+</div>
+<!--<a href="#" id="{{ $index + 1 }}" ng-click="update(movie)">{{ movie.Title }}</a>, {{ movie.Year }}-->
