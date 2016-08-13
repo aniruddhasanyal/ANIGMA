@@ -1,1 +1,3 @@
 # Texty
+
+The app accepts a text or an url, automatically recognizes if it’s an url or text. If it’s an url, it fetches the text from the url, cleans it up and then summarizes it. If it’s a text then the app summarizes it directly. It also extracts keywords sorted in descending order of their relevance. For summarization it’s using LSA/LSI and for keyword extraction its using an NLTK implementation of Rapid Automatic Keyword Extraction algorithm (which I have written and is quite buggy). The app is using flask to expose all the functionalities as a REST API and is using an AngularJS frontend (very basic one).
