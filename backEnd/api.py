@@ -2,13 +2,13 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import re
 
-import rake
+import rake_nltk
 import sumrise
 
 
 app = Flask(__name__)
 CORS(app)
-extractor = rake.RakeKeywordExtractor()
+extractor = rake_nltk.RakeKeywordExtractor()
 
 @app.route('/', methods=['GET'])
 def index():
@@ -25,7 +25,7 @@ def resp_keyword():
 @app.route('/summary/', methods=['POST'])
 def resp_sum():
     url = request.json['search']
-    summary = sumrise.sumrise(url, 7)
+    summary = sumrise.sumrise(url, 6)
     summary = re.sub(r'\s*Sentence:\s*|[<>()]', '', summary)
     resp = jsonify(summary)
     resp.headers.add('Access-Control-Allow-Origin', '*')
@@ -34,4 +34,4 @@ def resp_sum():
 
 
 if (__name__ == '__main__'):
-    app.run(host='192.168.0.101', port=6166, debug=False)
+    app.run(host='192.168.0.102', port=6166, debug=False)
